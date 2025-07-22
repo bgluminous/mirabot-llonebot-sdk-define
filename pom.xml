@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ink.on.central.bot</groupId>
+  <artifactId>mirabot-llonebot-sdk-define</artifactId>
+  <version>1.0.0</version>
+  <name>MiraBot LLOneBot SDK Define</name>
+  <description>MiraBot LLOneBot SDK Define 提供LLOneBot的Java定义并兼容OneBot-11协议</description>
+  <url>https://github.com/bgluminous/mirabot-llonebot-sdk-define</url>
+
+  <scm>
+    <connection>scm:git:git://github.com/bgluminous/mirabot-llonebot-sdk-define.git</connection>
+    <developerConnection>
+      scm:git:ssh://github.com/bgluminous/mirabot-llonebot-sdk-define.git
+    </developerConnection>
+    <url>https://github.com/bgluminous/mirabot-llonebot-sdk-define</url>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>BGLuminous</id>
+      <email>i@on.ink</email>
+      <timezone>UTF+8</timezone>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>26.0.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.38</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+</project>

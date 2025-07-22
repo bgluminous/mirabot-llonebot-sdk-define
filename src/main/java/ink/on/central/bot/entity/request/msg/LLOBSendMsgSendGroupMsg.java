@@ -1,0 +1,27 @@
+package ink.on.central.bot.entity.request.msg;
+
+import ink.on.central.bot.entity.request.msg.part.hal.LLOBMsgPart;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+import java.util.List;
+
+/**
+ * 发送群消息 实体类
+ *
+ * @author BGLuminous
+ * @version 1.0.0-20250722
+ * @see ink.on.central.bot.APIConstant.Message#SEND_GROUP_MSG
+ * @since 1.0.0-20250722
+ */
+@Accessors(chain = true)
+@Data
+public class LLOBSendMsgSendGroupMsg {
+  /** 群号（消息类型为 group 时需要） */
+  private Long groupId;
+  /** 要发送的内容 */
+  private List<LLOBMsgPart> message;
+  /** 消息内容是否作为纯文本发送（即不解析 CQ 码），只在 message 字段是字符串时有效 */
+  @Deprecated(since = "OneBot-11协议兼容")
+  private Boolean autoEscape;
+}
