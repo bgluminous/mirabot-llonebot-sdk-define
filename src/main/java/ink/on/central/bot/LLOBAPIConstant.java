@@ -11,7 +11,7 @@ package ink.on.central.bot;
  * @version 1.0.0-20250711
  * @since 1.0.0-20250711
  */
-public class APIConstant {
+public class LLOBAPIConstant {
 
   public static class User {
     /** 发送好友赞 */
@@ -44,6 +44,8 @@ public class APIConstant {
     public static final String SET_FRIEND_CATEGORY = "set_friend_category";
     /** 获取QQ头像 LLOneBot扩展 */
     public static final String GET_QQ_AVATAR = "get_qq_avatar";
+    /** 获取私聊文件资源链接 LLOneBot扩展 */
+    public static final String GET_PRIVATE_FILE_URL = "get_private_file_url";
 
     private User() {
     }
@@ -116,6 +118,10 @@ public class APIConstant {
     public static final String SET_GROUP_REMARK = "set_group_remark";
     /** 获取已过滤的加群通知 LLOneBot扩展 */
     public static final String GET_GROUP_IGNORE_ADD_REQUEST = "get_group_ignore_add_request";
+    /** 获取群子目录文件列表 LLOneBot扩展 */
+    public static final String GET_GROUP_FILES_BY_FOLDER = "get_group_files_by_folder";
+    /** 重命名群文件文件夹名 LLOneBot扩展 */
+    public static final String RENAME_GROUP_FILE_FOLDER = "rename_group_file_folder";
 
     private Group() {
     }
@@ -156,8 +162,9 @@ public class APIConstant {
     /** 标记消息为已读 LLOneBot扩展 */
     public static final String MARK_MSG_AS_READ = "mark_msg_as_read";
     /** 语音消息转文字 LLOneBot扩展 @开发中 */
-    @Deprecated
     public static final String VOICE_MSG_TO_TEXT = "voice_msg_to_text";
+    /** 发送群 AI 语音消息 LLOneBot扩展 */
+    public static final String SEND_GROUP_AI_RECORD = "send_group_ai_record";
 
     private Message() {
     }
@@ -202,6 +209,8 @@ public class APIConstant {
     public static final String FETCH_CUSTOM_FACE = "fetch_custom_face";
     /** 下载文件到bot所在 LLOneBot扩展 */
     public static final String DOWNLOAD_FILE = "download_file";
+    /** 获取群 Ai 语音可用声色列表 LLOneBot扩展 */
+    public static final String GET_AI_CHARACTERS = "get_ai_characters";
 
     private Other() {
     }
@@ -232,6 +241,6 @@ public class APIConstant {
   }
 
   /** 私有构造方法 */
-  private APIConstant() {
+  private LLOBAPIConstant() {
   }
 }

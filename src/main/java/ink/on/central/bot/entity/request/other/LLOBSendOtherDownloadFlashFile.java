@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.other;
 
+import ink.on.central.bot.LLOBAPIConstant;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -8,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250721
- * @see ink.on.central.bot.APIConstant.Other#DOWNLOAD_FLASH_FILE
+ * @see LLOBAPIConstant.Other#DOWNLOAD_FLASH_FILE
  * @since 1.0.0-20250721
  */
 @Accessors(chain = true)

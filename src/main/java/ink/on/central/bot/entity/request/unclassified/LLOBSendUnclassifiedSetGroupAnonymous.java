@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.unclassified;
 
+import ink.on.central.bot.LLOBAPIConstant;
 import ink.on.central.bot.entity.request.LLOBGroupBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +11,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see ink.on.central.bot.APIConstant.UnClassified#SET_GROUP_ANONYMOUS
+ * @see LLOBAPIConstant.UnClassified#SET_GROUP_ANONYMOUS
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

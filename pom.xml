@@ -41,7 +41,28 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <!-- Deploy Server Config -->
+  <distributionManagement>
+    <repository>
+      <id>luminous-nexus</id>
+      <name>luminous-nexus</name>
+      <url>https://nexus.kiiiv.com/repository/maven-private/</url>
+    </repository>
+    <snapshotRepository>
+      <id>luminous-nexus</id>
+      <name>luminous-nexus</name>
+      <url>https://nexus.kiiiv.com/repository/maven-snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <dependencies>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.18.3</version>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.jetbrains</groupId>
       <artifactId>annotations</artifactId>
@@ -55,5 +76,23 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

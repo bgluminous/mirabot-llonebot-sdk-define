@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.unclassified;
 
+import ink.on.central.bot.LLOBAPIConstant;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -8,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see ink.on.central.bot.APIConstant.UnClassified#CAN_SEND_IMAGE
+ * @see LLOBAPIConstant.UnClassified#CAN_SEND_IMAGE
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)
