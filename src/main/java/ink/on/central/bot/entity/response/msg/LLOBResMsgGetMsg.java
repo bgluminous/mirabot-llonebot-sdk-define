@@ -1,6 +1,5 @@
 package ink.on.central.bot.entity.response.msg;
 
-import ink.on.central.bot.LLOBAPIConstant;
 import ink.on.central.bot.entity.request.msg.part.hal.LLOBMsgPart;
 import ink.on.central.bot.entity.types.LLOBGroupRole;
 import lombok.Data;
@@ -13,7 +12,7 @@ import java.util.List;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIConstant.Message#GET_MSG
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_MSG
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)
@@ -22,14 +21,14 @@ public class LLOBResMsgGetMsg {
   /**  */
   private Long selfId;
   /** 群ID */
-  private long groupId;
+  private Long groupId;
   /** 消息发送者id */
   private Long userId;
   /** 消息发送时间 */
   private Long time;
   /** 消息id */
   private Long messageId;
-  /**  */
+  /** 真实消息ID */
   private Long realId;
   /** 消息序列号 */
   private Long messageSeq;

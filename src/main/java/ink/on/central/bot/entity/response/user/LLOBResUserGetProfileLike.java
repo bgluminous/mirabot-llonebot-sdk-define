@@ -1,7 +1,6 @@
 package ink.on.central.bot.entity.response.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ink.on.central.bot.LLOBAPIConstant;
 import ink.on.central.bot.entity.types.LLOBUserSex;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -13,7 +12,7 @@ import java.util.List;
  *
  * @author BGLuminous
  * @version 1.0.0-20250724
- * @see LLOBAPIConstant.User#GET_PROFILE_LIKE
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_PROFILE_LIKE
  * @since 1.0.0-20250724
  */
 @Accessors(chain = true)
@@ -33,7 +32,7 @@ public class LLOBResUserGetProfileLike {
     private Integer src;
     /** 最后时间 */
     @JsonProperty("latestTime")
-    private long latestTime;
+    private Long latestTime;
     /** 点赞数量 */
     private Integer count;
     /** 礼物数量 */
@@ -44,7 +43,7 @@ public class LLOBResUserGetProfileLike {
     private Integer customId;
     /**  */
     @JsonProperty("lastCharged")
-    private long lastCharged;
+    private Long lastCharged;
     /**  */
     @JsonProperty("bAvailableCnt")
     private Integer bAvailableCnt;
@@ -67,7 +66,7 @@ public class LLOBResUserGetProfileLike {
     @JsonProperty("isSvip")
     private boolean isSvip;
     /** 联合ID */
-    private long uin;
+    private Long uin;
 
     public LLOBUserSex getGender() {
       return LLOBUserSex.codeOf(gender);

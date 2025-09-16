@@ -1,6 +1,5 @@
 package ink.on.central.bot.entity.request.user;
 
-import ink.on.central.bot.LLOBAPIConstant;
 import ink.on.central.bot.entity.request.LLOBUserBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +10,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20240408
- * @see LLOBAPIConstant.User#GET_STRANGER_INFO
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_STRANGER_INFO
  * @since 1.0.0-20240408
  */
 @Accessors(chain = true)

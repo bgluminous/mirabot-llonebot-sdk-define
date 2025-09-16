@@ -1,6 +1,5 @@
 package ink.on.central.bot.entity.response.group;
 
-import ink.on.central.bot.LLOBAPIConstant;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,7 +8,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIConstant.Group#UPLOAD_GROUP_FILE
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#UPLOAD_GROUP_FILE
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)

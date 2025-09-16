@@ -1,6 +1,5 @@
 package ink.on.central.bot.entity.response.other;
 
-import ink.on.central.bot.LLOBAPIConstant;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,7 +8,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250724
- * @see LLOBAPIConstant.Other#OCR_IMAGE
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#OCR_IMAGE
  * @since 1.0.0-20250724
  */
 @Accessors(chain = true)
@@ -35,9 +34,9 @@ public class LLOBResOtherOcrImage {
   @Data
   public static class LLOBResOtherOcrImageCoordinate {
     /** 坐标X */
-    private long x;
+    private Long x;
     /** 坐标Y */
-    private long y;
+    private Long y;
   }
 
 }

@@ -1,6 +1,5 @@
 package ink.on.central.bot.entity.request.unclassified;
 
-import ink.on.central.bot.LLOBAPIConstant;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,7 +8,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see LLOBAPIConstant.UnClassified#CAN_SEND_VOICE
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#CAN_SEND_VOICE
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

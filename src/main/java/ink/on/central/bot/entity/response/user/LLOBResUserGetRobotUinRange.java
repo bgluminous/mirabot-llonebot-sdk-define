@@ -1,7 +1,6 @@
 package ink.on.central.bot.entity.response.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ink.on.central.bot.LLOBAPIConstant;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -10,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250724
- * @see LLOBAPIConstant.User#GET_ROBOT_UIN_RANGE
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_ROBOT_UIN_RANGE
  * @since 1.0.0-20250724
  */
 @Accessors(chain = true)

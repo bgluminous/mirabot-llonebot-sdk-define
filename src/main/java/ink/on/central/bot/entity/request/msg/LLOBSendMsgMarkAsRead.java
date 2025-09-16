@@ -1,6 +1,5 @@
 package ink.on.central.bot.entity.request.msg;
 
-import ink.on.central.bot.LLOBAPIConstant;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,7 +8,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see LLOBAPIConstant.Message#MARK_MSG_AS_READ
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#MARK_MSG_AS_READ
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

@@ -1,6 +1,5 @@
 package ink.on.central.bot.entity.request.group;
 
-import ink.on.central.bot.LLOBAPIConstant;
 import ink.on.central.bot.entity.request.LLOBGroupBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +10,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIConstant.Group#GET_GROUP_FILES_BY_FOLDER
+ * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_GROUP_FILES_BY_FOLDER
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)
