@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.response.other;
 
+import ink.on.central.bot.LLOBAPIType;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -10,7 +11,7 @@ import java.util.List;
  *
  * @author BGLuminous
  * @version 1.0.0-20250724
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_RECOMMEND_FACE
+ * @see LLOBAPIType#GET_RECOMMEND_FACE
  * @since 1.0.0-20250724
  */
 @Accessors(chain = true)

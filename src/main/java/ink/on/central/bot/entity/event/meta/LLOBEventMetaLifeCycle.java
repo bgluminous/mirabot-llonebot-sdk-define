@@ -1,7 +1,6 @@
 package ink.on.central.bot.entity.event.meta;
 
 import ink.on.central.bot.entity.event.LLOBEventRoot;
-import ink.on.central.bot.entity.event.notice.LLOBEventNoticeFlashFile;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -22,8 +21,8 @@ public class LLOBEventMetaLifeCycle extends LLOBEventRoot {
   /** 子类型 */
   private String subType;
 
-  public LLOBEventNoticeFlashFile.SubType getSubType() {
-    for (LLOBEventNoticeFlashFile.SubType value : LLOBEventNoticeFlashFile.SubType.values()) {
+  public SubType getSubType() {
+    for (SubType value : SubType.values()) {
       if (value.name().equalsIgnoreCase(this.subType)) {
         return value;
       }

@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.msg;
 
+import ink.on.central.bot.LLOBAPIType;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -8,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250721
- * @see ink.on.central.bot.LLOBAPIEntityMapper#VOICE_MSG_TO_TEXT
+ * @see LLOBAPIType#VOICE_MSG_TO_TEXT
  * @since 1.0.0-20250721
  */
 @Accessors(chain = true)

@@ -1,7 +1,6 @@
 package ink.on.central.bot.entity.event.msg;
 
 import ink.on.central.bot.entity.event.LLOBEventRoot;
-import ink.on.central.bot.entity.request.msg.part.hal.LLOBMsgPart;
 import ink.on.central.bot.entity.types.LLOBGroupRole;
 import ink.on.central.bot.entity.types.LLOBUserSex;
 import lombok.Data;
@@ -9,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 消息事件实体类
@@ -20,15 +20,13 @@ import java.util.List;
 @Accessors(chain = true)
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class LLOBEventMessage extends LLOBEventRoot {
+public class LLOBEventPrivateMessage extends LLOBEventRoot {
   /** 消息id */
   private Long messageId;
   /** 消息序列号 */
   private Long messageSeq;
   /** 真实消息ID（仅在 get_msg 接口存在） */
   private Long realId;
-  /** 群ID */
-  private Long groupId;
   /** 消息发送者id */
   private Long userId;
   /** 消息类型 */
@@ -38,7 +36,7 @@ public class LLOBEventMessage extends LLOBEventRoot {
   /** 消息发送者 */
   private Sender sender;
   /** 消息列表 */
-  private List<? extends LLOBMsgPart> message;
+  private List<Map<String, Object>> message;
   /** 消息格式 */
   private String messageFormat;
   /** 原始消息内容（CQ 码格式） */

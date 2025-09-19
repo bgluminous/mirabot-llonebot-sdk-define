@@ -1,18 +1,19 @@
 package ink.on.central.bot.entity.response.msg;
 
-import ink.on.central.bot.entity.request.msg.part.hal.LLOBMsgPart;
+import ink.on.central.bot.LLOBAPIType;
 import ink.on.central.bot.entity.types.LLOBGroupRole;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 获取群历史消息 LLOneBot扩展 返回实体类
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_GROUP_MSG_HISTORY
+ * @see LLOBAPIType#GET_GROUP_MSG_HISTORY
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)
@@ -47,7 +48,7 @@ public class LLOBResMsgGetGroupMsgHistory  {
     /** 消息子类型 */
     private String subType;
     /** 消息列表 */
-    private List<? extends LLOBMsgPart> message;
+    private List<Map<String, Object>> message;
     /** 消息格式 */
     private String messageFormat;
     /** 操作类型 */

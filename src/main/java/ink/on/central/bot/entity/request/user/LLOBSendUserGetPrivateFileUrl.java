@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.user;
 
+import ink.on.central.bot.LLOBAPIType;
 import ink.on.central.bot.entity.request.LLOBUserBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +11,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_PRIVATE_FILE_URL
+ * @see LLOBAPIType#GET_PRIVATE_FILE_URL
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)

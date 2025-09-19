@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.msg;
 
+import ink.on.central.bot.LLOBAPIType;
 import ink.on.central.bot.entity.request.msg.part.hal.LLOBMsgPart;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see ink.on.central.bot.LLOBAPIEntityMapper#SEND_PRIVATE_MSG
+ * @see LLOBAPIType#SEND_PRIVATE_MSG
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

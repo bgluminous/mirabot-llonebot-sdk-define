@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.user;
 
+import ink.on.central.bot.LLOBAPIType;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -8,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250717
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_FRIENDS_WITH_CATEGORY
+ * @see LLOBAPIType#GET_FRIENDS_WITH_CATEGORY
  * @since 1.0.0-20250717
  */
 @Accessors(chain = true)

@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class LLOBEventRequestGroupRequest extends LLOBEventRoot {
+public class LLOBEventRequestGroupAdd extends LLOBEventRoot {
   /**  */
   private String requestType;
   /** 子类型 */

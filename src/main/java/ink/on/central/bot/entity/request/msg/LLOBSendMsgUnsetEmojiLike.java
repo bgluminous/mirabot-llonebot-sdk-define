@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.msg;
 
+import ink.on.central.bot.LLOBAPIType;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -8,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see ink.on.central.bot.LLOBAPIEntityMapper#UNSET_MSG_EMOJI_LIKE
+ * @see LLOBAPIType#UNSET_MSG_EMOJI_LIKE
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

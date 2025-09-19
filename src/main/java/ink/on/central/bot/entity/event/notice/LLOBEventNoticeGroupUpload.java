@@ -23,7 +23,7 @@ public class LLOBEventNoticeGroupUpload extends LLOBEventRoot {
   /** 用户ID */
   private Long userId;
   /** 文件列表 */
-  private Files[] file;
+  private Files file;
 
   /** 文件属性 */
   @Accessors(chain = true)

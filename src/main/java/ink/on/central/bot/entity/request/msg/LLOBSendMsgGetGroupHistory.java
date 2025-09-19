@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.msg;
 
+import ink.on.central.bot.LLOBAPIType;
 import ink.on.central.bot.entity.request.LLOBGroupBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +11,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_GROUP_MSG_HISTORY
+ * @see LLOBAPIType#GET_GROUP_MSG_HISTORY
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

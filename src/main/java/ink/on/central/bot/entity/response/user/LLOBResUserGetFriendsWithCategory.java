@@ -1,6 +1,7 @@
 package ink.on.central.bot.entity.response.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ink.on.central.bot.LLOBAPIType;
 import ink.on.central.bot.entity.types.LLOBUserSex;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author BGLuminous
  * @version 1.0.0-20250724
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_FRIENDS_WITH_CATEGORY
+ * @see LLOBAPIType#GET_FRIENDS_WITH_CATEGORY
  * @since 1.0.0-20250724
  */
 @Accessors(chain = true)

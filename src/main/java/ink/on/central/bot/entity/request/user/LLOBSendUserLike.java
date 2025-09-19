@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.request.user;
 
+import ink.on.central.bot.LLOBAPIType;
 import ink.on.central.bot.entity.request.LLOBUserBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,7 +9,7 @@ import lombok.experimental.Accessors;
 /**
  * 发送好友赞载体 实体类
  *
- * @see ink.on.central.bot.LLOBAPIEntityMapper#SEND_LIKE
+ * @see LLOBAPIType#SEND_LIKE
  * @author BGLuminous
  * @since 1.0.0-20240407
  * @version 1.0.0-20240407

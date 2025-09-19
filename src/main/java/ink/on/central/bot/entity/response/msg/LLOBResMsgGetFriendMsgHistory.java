@@ -1,17 +1,18 @@
 package ink.on.central.bot.entity.response.msg;
 
-import ink.on.central.bot.entity.request.msg.part.hal.LLOBMsgPart;
+import ink.on.central.bot.LLOBAPIType;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 获取好友历史消息记录 LLOneBot扩展 返回实体类
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_FRIEND_MSG_HISTORY
+ * @see LLOBAPIType#GET_FRIEND_MSG_HISTORY
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)
@@ -46,7 +47,7 @@ public class LLOBResMsgGetFriendMsgHistory {
     /** 消息子类型 */
     private String subType;
     /** 消息列表 */
-    private List<? extends LLOBMsgPart> message;
+    private List<Map<String, Object>> message;
     /** 消息格式 */
     private String messageFormat;
     /** 操作类型 */

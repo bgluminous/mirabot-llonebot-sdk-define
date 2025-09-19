@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  * @version 1.0.0-20250912
  * @since 1.0.0-20250912
  */
-public enum LLOBAPIEntityMapper {
+public enum LLOBAPIType {
 
   // Friend
   /** 发送好友赞 */
@@ -239,15 +239,15 @@ public enum LLOBAPIEntityMapper {
   @Getter
   private final Class<?> resEntityClass;
 
-  LLOBAPIEntityMapper(String apiUrl, Class<?> reqEntityClass, Class<?> resEntityClass) {
+  LLOBAPIType(String apiUrl, Class<?> reqEntityClass, Class<?> resEntityClass) {
     this.apiUrl = apiUrl;
     this.reqEntityClass = reqEntityClass;
     this.resEntityClass = resEntityClass;
   }
 
   @NotNull
-  public static LLOBAPIEntityMapper urlOf(@NotNull String apiUrl) {
-    for (LLOBAPIEntityMapper mapper : LLOBAPIEntityMapper.values()) {
+  public static LLOBAPIType urlOf(@NotNull String apiUrl) {
+    for (LLOBAPIType mapper : LLOBAPIType.values()) {
       if (mapper.getApiUrl().equals(apiUrl)) {
         return mapper;
       }

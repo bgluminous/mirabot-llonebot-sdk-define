@@ -1,18 +1,19 @@
 package ink.on.central.bot.entity.response.msg;
 
-import ink.on.central.bot.entity.request.msg.part.hal.LLOBMsgPart;
+import ink.on.central.bot.LLOBAPIType;
 import ink.on.central.bot.entity.types.LLOBGroupRole;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 获取消息详情 LLOneBot扩展 返回实体类
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see ink.on.central.bot.LLOBAPIEntityMapper#GET_MSG
+ * @see LLOBAPIType#GET_MSG
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)
@@ -47,7 +48,7 @@ public class LLOBResMsgGetMsg {
   /** 消息发送者 */
   private Sender sender;
   /** 消息列表 */
-  private List<? extends LLOBMsgPart> message;
+  private List<Map<String, Object>> message;
 
   /** 消息发送者 */
   @Accessors(chain = true)
