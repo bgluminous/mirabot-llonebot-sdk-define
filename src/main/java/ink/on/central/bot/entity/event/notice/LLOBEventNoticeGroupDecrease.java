@@ -27,8 +27,8 @@ public class LLOBEventNoticeGroupDecrease extends LLOBEventRoot {
   /** 操作用户ID */
   private Long operatorId;
 
-  public LLOBEventNoticeGroupTitle.SubType getSubType() {
-    for (LLOBEventNoticeGroupTitle.SubType value : LLOBEventNoticeGroupTitle.SubType.values()) {
+  public SubType getSubType() {
+    for (SubType value : SubType.values()) {
       if (value.name().equalsIgnoreCase(this.subType)) {
         return value;
       }

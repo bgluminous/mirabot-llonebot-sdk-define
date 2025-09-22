@@ -1,9 +1,7 @@
 package ink.on.central.bot.entity.request.unclassified;
 
 import ink.on.central.bot.LLOBAPIType;
-import ink.on.central.bot.entity.request.LLOBGroupBase;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -17,8 +15,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Data
 @Deprecated(since = "OneBot-11协议兼容，不确定是否可用")
-@EqualsAndHashCode(callSuper = true)
-public class LLOBSendUnclassifiedSetGroupAnonymousBan extends LLOBGroupBase {
+public class LLOBSendUnclassifiedSetGroupAnonymousBan {
+  /** 群号 */
+  private Long groupId;
   /** 要禁言的匿名用户的 flag（需从群消息上报的数据中获得） */
   private String flag;
   /** 禁言时长，单位秒，0 表示取消禁言 */

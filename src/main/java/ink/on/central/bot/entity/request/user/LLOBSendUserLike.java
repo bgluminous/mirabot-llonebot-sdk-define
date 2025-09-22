@@ -1,13 +1,11 @@
 package ink.on.central.bot.entity.request.user;
 
 import ink.on.central.bot.LLOBAPIType;
-import ink.on.central.bot.entity.request.LLOBUserBase;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * 发送好友赞载体 实体类
+ * 发送好友赞 实体类
  *
  * @see LLOBAPIType#SEND_LIKE
  * @author BGLuminous
@@ -16,8 +14,9 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class LLOBSendUserLike extends LLOBUserBase {
+public class LLOBSendUserLike {
+  /** QQ号 */
+  private Long userId;
   /** 赞的次数，每个好友每天最多 10 次 */
   private Integer times;
 }

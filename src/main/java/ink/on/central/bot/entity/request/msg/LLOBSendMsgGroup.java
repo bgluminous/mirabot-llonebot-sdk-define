@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Accessors(chain = true)
 @Data
-public class LLOBSendMsgSendGroupMsg {
+public class LLOBSendMsgGroup {
   /** 群号（消息类型为 group 时需要） */
   private Long groupId;
   /** 要发送的内容 */

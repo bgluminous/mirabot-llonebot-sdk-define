@@ -41,7 +41,7 @@ public enum LLOBAPIType {
   /** 获取好友或群友信息 LLOneBot扩展 */
   GET_STRANGER_INFO("get_stranger_info", LLOBSendUserGetStrangerInfo.class, LLOBResUserGetStrangerInfo.class),
   /** 设置QQ头像 LLOneBot扩展 */
-  SET_QQ_AVATAR("set_qq_avatar", LLOBSendUserSetQQAvatar.class, LLOBResUserGetQQAvatar.class),
+  SET_QQ_AVATAR("set_qq_avatar", LLOBSendUserSetQQAvatar.class, String.class),
   /** 好友戳一戳（双击头像） LLOneBot扩展 */
   FRIEND_POKE("friend_poke", LLOBSendUserFriendPoke.class, String.class),
   /** 上传私聊文件 LLOneBot扩展 */
@@ -137,9 +137,9 @@ public enum LLOBAPIType {
   @Deprecated(since = "OneBot-11协议兼容，推荐使用 SEND_PRIVATE_MSG 和 SEND_GROUP_MSG")
   SEND_MSG("send_msg", LLOBSendMsgSendMsg.class, LLOBResMsgSendMsg.class),
   /** 发送私聊消息 */
-  SEND_PRIVATE_MSG("send_private_msg", LLOBSendMsgSendPrivateMsg.class, LLOBResMsgSendPrivateMsg.class),
+  SEND_PRIVATE_MSG("send_private_msg", LLOBSendMsgPrivate.class, LLOBResMsgSendPrivateMsg.class),
   /** 发送群消息 */
-  SEND_GROUP_MSG("send_group_msg", LLOBSendMsgSendGroupMsg.class, LLOBResMsgSendGroupMsg.class),
+  SEND_GROUP_MSG("send_group_msg", LLOBSendMsgGroup.class, LLOBResMsgSendGroupMsg.class),
   /** 转发单条好友消息 LLOneBot扩展 */
   FORWARD_FRIEND_SINGLE_MSG("forward_friend_single_msg", LLOBSendMsgForwardFriendSingle.class, String.class),
   /** 转发单条群消息 LLOneBot扩展 */

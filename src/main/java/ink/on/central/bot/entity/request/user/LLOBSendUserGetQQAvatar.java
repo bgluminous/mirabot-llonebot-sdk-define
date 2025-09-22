@@ -16,5 +16,5 @@ import lombok.experimental.Accessors;
 @Data
 public class LLOBSendUserGetQQAvatar {
   /** QQ号 */
-  private String userId;
+  private Long userId;
 }

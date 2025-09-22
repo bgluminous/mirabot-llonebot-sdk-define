@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * 获取图片rkey LLOneBot扩展
+ * 获取图片Rkey LLOneBot扩展
  *
  * @author BGLuminous
  * @version 1.0.0-20250721

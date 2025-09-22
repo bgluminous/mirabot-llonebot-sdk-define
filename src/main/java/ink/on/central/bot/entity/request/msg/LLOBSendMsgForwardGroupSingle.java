@@ -1,9 +1,7 @@
 package ink.on.central.bot.entity.request.msg;
 
 import ink.on.central.bot.LLOBAPIType;
-import ink.on.central.bot.entity.request.LLOBGroupBase;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -16,7 +14,9 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class LLOBSendMsgForwardGroupSingle extends LLOBGroupBase {
-    private String messageId;
+public class LLOBSendMsgForwardGroupSingle {
+  /** 群号 */
+  private Long groupId;
+  /** 消息ID */
+  private String messageId;
 }

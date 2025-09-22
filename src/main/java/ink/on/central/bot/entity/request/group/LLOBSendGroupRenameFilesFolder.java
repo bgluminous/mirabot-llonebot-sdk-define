@@ -1,9 +1,7 @@
 package ink.on.central.bot.entity.request.group;
 
 import ink.on.central.bot.LLOBAPIType;
-import ink.on.central.bot.entity.request.LLOBGroupBase;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -16,8 +14,9 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class LLOBSendGroupRenameFilesFolder extends LLOBGroupBase {
+public class LLOBSendGroupRenameFilesFolder {
+  /** 群号 */
+  private Long groupId;
   /** 文件夹 ID */
   private String folderId;
   /** 新的文件夹名 */

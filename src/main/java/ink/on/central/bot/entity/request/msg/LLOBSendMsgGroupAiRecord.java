@@ -24,9 +24,10 @@ public class LLOBSendMsgGroupAiRecord {
   /** 语音类型 */
   private Integer chatType;
 
-  public void setChatType(Integer chatType) {
+  public LLOBSendMsgGroupAiRecord setChatType(Integer chatType) {
     if (chatType != 1 && chatType != 2) {
       throw new IllegalArgumentException("chatType must be 1 or 2");
     }
+    return this;
   }
 }

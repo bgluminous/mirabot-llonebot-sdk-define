@@ -1,9 +1,7 @@
 package ink.on.central.bot.entity.request.group;
 
 import ink.on.central.bot.LLOBAPIType;
-import ink.on.central.bot.entity.request.LLOBCacheable;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -16,8 +14,8 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class LLOBSendGroupGetList extends LLOBCacheable {
-  // EMPTY
+public class LLOBSendGroupGetList {
+  /** 是否不使用缓存 */
+  private Boolean noCache;
 }
 

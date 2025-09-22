@@ -1,9 +1,7 @@
 package ink.on.central.bot.entity.request.user;
 
 import ink.on.central.bot.LLOBAPIType;
-import ink.on.central.bot.entity.request.LLOBUserBase;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -16,8 +14,9 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class LLOBSendUserUploadPrivateFile extends LLOBUserBase {
+public class LLOBSendUserUploadPrivateFile {
+  /** QQ号 */
+  private Long userId;
   /**
    * 文件,支持三种格式:
    *

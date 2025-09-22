@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Accessors(chain = true)
 @Data
-public class LLOBSendMsgSendPrivateMsg {
+public class LLOBSendMsgPrivate {
   /** QQ号（消息类型为 private 时需要） */
   private Long userId;
   /** 要发送的内容 */
