@@ -6,7 +6,7 @@
 
   <groupId>ink.on.central.bot</groupId>
   <artifactId>mirabot-llonebot-sdk-define</artifactId>
-  <version>1.4.0</version>
+  <version>1.5.0</version>
   <name>MiraBot LLOneBot SDK Define</name>
   <description>MiraBot LLOneBot SDK Define 提供LLOneBot的Java定义并兼容OneBot-11协议</description>
   <url>https://github.com/bgluminous/mirabot-llonebot-sdk-define</url>

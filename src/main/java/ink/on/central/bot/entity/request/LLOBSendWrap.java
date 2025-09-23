@@ -20,7 +20,7 @@ public class LLOBSendWrap {
   /** 用于唯一标识一次请求 */
   private String echo;
 
-  public static LLOBSendWrap from(String action, String paramsJson, String echo) {
+  public static LLOBSendWrap from(String action, Object paramsJson, String echo) {
     return new LLOBSendWrap().setAction(action).setParams(paramsJson).setEcho(echo);
   }
 }
