@@ -1,0 +1,30 @@
+package ink.on.central.bot.entity.request.file;
+
+import ink.on.central.bot.LLOBAPIType;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+/**
+ * 上传私聊文件 LLOneBot扩展 实体类
+ *
+ * @author BGLuminous
+ * @version 1.0.0-20250717
+ * @see LLOBAPIType.File#UPLOAD_PRIVATE_FILE
+ * @since 1.0.0-20250717
+ */
+@Accessors(chain = true)
+@Data
+public class LLOBSendFileUploadPrivate {
+  /** QQ号 */
+  private Long userId;
+  /**
+   * 文件,支持三种格式:
+   *
+   * <p>file://d:/1.png
+   * <p>https://???
+   * <p>base64://xxx
+   */
+  private String file;
+  /** 文件名 LLOneBot扩展字段 */
+  private String name;
+}

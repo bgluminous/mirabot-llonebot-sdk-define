@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIType#GET_IMAGE
+ * @see LLOBAPIType.Msg#GET_IMAGE
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)

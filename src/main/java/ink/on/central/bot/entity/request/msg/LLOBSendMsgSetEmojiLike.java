@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see LLOBAPIType#SET_MSG_EMOJI_LIKE
+ * @see LLOBAPIType.Msg#SET_MSG_EMOJI_LIKE
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

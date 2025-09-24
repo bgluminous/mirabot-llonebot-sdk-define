@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author BGLuminous
  * @version 1.0.0-20250722
- * @see LLOBAPIType#SEND_GROUP_MSG
+ * @see LLOBAPIType.Msg#SEND_GROUP_MSG
  * @since 1.0.0-20250722
  */
 @Accessors(chain = true)

@@ -1,0 +1,20 @@
+package ink.on.central.bot.entity.request.file;
+
+import ink.on.central.bot.LLOBAPIType;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+/**
+ * 获取群根目录文件列表 LLOneBot扩展 实体类
+ *
+ * @author BGLuminous
+ * @version 1.0.0-20250718
+ * @see LLOBAPIType.File#GET_GROUP_ROOT_FILES
+ * @since 1.0.0-20250718
+ */
+@Accessors(chain = true)
+@Data
+public class LLOBSendFileGroupGetRoot {
+  /** 群号 */
+  private Long groupId;
+}

@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250718
- * @see LLOBAPIType#DELETE_GROUP_FOLDER
+ * @see LLOBAPIType.File#DELETE_GROUP_FOLDER
  * @since 1.0.0-20250718
  */
 @Accessors(chain = true)

@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250721
- * @see LLOBAPIType#SET_ONLINE_STATUS
+ * @see LLOBAPIType.System#SET_ONLINE_STATUS
  * @since 1.0.0-20250721
  */
 @Accessors(chain = true)

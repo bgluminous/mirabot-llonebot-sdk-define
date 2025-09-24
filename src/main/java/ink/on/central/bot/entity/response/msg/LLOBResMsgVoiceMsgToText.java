@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIType#VOICE_MSG_TO_TEXT
+ * @see LLOBAPIType.Msg#VOICE_MSG_TO_TEXT
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)

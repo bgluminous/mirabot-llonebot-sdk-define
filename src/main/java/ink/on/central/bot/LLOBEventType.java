@@ -1,5 +1,6 @@
 package ink.on.central.bot;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import ink.on.central.bot.entity.event.meta.LLOBEventMetaHeartbeat;
 import ink.on.central.bot.entity.event.meta.LLOBEventMetaLifeCycle;
 import ink.on.central.bot.entity.event.msg.LLOBEventGroupMessage;
@@ -9,8 +10,6 @@ import ink.on.central.bot.entity.event.request.LLOBEventRequestFriendAdd;
 import ink.on.central.bot.entity.event.request.LLOBEventRequestGroupAdd;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Map;
 
 /**
  * 事件实体类映射枚举
@@ -109,14 +108,14 @@ public enum LLOBEventType {
    *
    * @return 解析后的事件实体类
    */
-  public static LLOBEventType analyze(@NotNull Map<String, Object> node) {
-    String postType = node.get("post_type").toString();
+  public static LLOBEventType analyze(@NotNull JsonNode node) {
+    String postType = node.get("post_type").asText();
     String postSpType;
     switch (postType) {
-      case "message" -> postSpType = node.get("message_type").toString();
-      case "request" -> postSpType = node.get("request_type").toString();
-      case "notice" -> postSpType = node.get("notice_type").toString();
-      case "meta_event" -> postSpType = node.get("meta_event_type").toString();
+      case "message" -> postSpType = node.get("message_type").asText();
+      case "request" -> postSpType = node.get("request_type").asText();
+      case "notice" -> postSpType = node.get("notice_type").asText();
+      case "meta_event" -> postSpType = node.get("meta_event_type").asText();
       default -> postSpType = "unknown";
     }
     return LLOBEventType.spTypeOf(postSpType);

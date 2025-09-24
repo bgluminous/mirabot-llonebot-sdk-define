@@ -1,5 +1,6 @@
 package ink.on.central.bot.entity.response;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -15,6 +16,8 @@ import lombok.experimental.Accessors;
 public class LLOBResWrapper {
   /** 时间戳 */
   private Long timestamp;
-  /** 响应数据 */
+  /** 响应RAW JSON */
   private String raw;
+  /** 响应Data JSON */
+  private JsonNode dataJson;
 }

@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIType#GET_MSG
+ * @see LLOBAPIType.Msg#GET_MSG
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)

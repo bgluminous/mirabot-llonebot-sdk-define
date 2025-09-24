@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIType#GET_GROUP_SYSTEM_MSG
+ * @see LLOBAPIType.Group#GET_GROUP_SYSTEM_MSG
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)
