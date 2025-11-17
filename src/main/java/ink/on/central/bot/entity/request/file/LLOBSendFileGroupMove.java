@@ -18,7 +18,7 @@ public class LLOBSendFileGroupMove {
   /** 文件 ID */
   private String fileId;
   /** 群号 */
-  private long groupId;
+  private Long groupId;
   /** 当前文件夹 ID */
   private String parentDirectory;
   /** 目标文件夹 ID */

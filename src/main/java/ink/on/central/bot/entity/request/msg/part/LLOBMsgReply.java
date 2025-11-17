@@ -22,7 +22,7 @@ public class LLOBMsgReply extends LLOBMsgPart {
    *
    * @param id 消息id
    */
-  public LLOBMsgReply(@NotNull Integer id) {
+  public LLOBMsgReply(@NotNull Long id) {
     super("reply");
     this.data = new LLOBMsgReplyData().setId(id);
   }
@@ -37,7 +37,7 @@ public class LLOBMsgReply extends LLOBMsgPart {
   @EqualsAndHashCode(callSuper = true)
   public static class LLOBMsgReplyData extends LLOBMsgBase {
     /** 回复的消息id */
-    private Integer id;
+    private Long id;
   }
 
 }

@@ -32,6 +32,9 @@ public enum LLOBAPIType {
   public enum File {
     /** 上传群文件 LLOneBot扩展 */
     UPLOAD_GROUP_FILE("upload_group_file", LLOBSendFileGroupUpload.class, LLOBResGroupUploadFile.class),
+    /** 群文件转永久 */
+    @Deprecated(since = "开发中")
+    SET_GROUP_FILE_FOREVER("set_group_file_forever", LLOBSendFileGroupSetForever.class, String.class),
     /** 删除群文件 LLOneBot扩展 */
     DELETE_GROUP_FILE("delete_group_file", LLOBSendFileGroupDelete.class, String.class),
     /** 移动群文件 LLOneBot扩展 */
@@ -270,7 +273,8 @@ public enum LLOBAPIType {
     /** 语音消息转文字 LLOneBot扩展 @开发中 */
     VOICE_MSG_TO_TEXT("voice_msg_to_text", LLOBSendMsgVoiceToText.class, LLOBResMsgVoiceMsgToText.class),
     /** 发送群 AI 语音消息 LLOneBot扩展 */
-    SEND_GROUP_AI_RECORD("send_group_ai_record", LLOBSendMsgGroupAiRecord.class, LLOBResMsgSendGroupAiRecord.class),;
+    SEND_GROUP_AI_RECORD("send_group_ai_record", LLOBSendMsgGroupAiRecord.class, LLOBResMsgSendGroupAiRecord.class),
+    ;
 
     /** API URL */
     @Getter
@@ -310,7 +314,10 @@ public enum LLOBAPIType {
     /** 获取收藏表情 LLOneBot扩展 */
     FETCH_CUSTOM_FACE("fetch_custom_face", LLOBSendOtherFetchCustomFace.class, String.class),
     /** 获取群 Ai 语音可用声色列表 LLOneBot扩展 */
-    GET_AI_CHARACTERS("get_ai_characters", LLOBSendOtherGetAiCharacters.class, LLOBResOtherGetAiCharacters.class);
+    GET_AI_CHARACTERS("get_ai_characters", LLOBSendOtherGetAiCharacters.class, LLOBResOtherGetAiCharacters.class),
+    /** 发送Protobuf数据包 LLOneBot扩展 */
+    @Deprecated(since = "开发中")
+    SEND_PROTOBUF("send_pb", LLOBSendOtherSendProtobuf.class, LLOBResOtherSendProtobuf.class);
 
     /** API URL */
     @Getter
