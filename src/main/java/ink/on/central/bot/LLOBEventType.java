@@ -15,7 +15,7 @@ import tools.jackson.databind.JsonNode;
  * 事件实体类映射枚举
  *
  * @author BGLuminous
- * @version 1.1.0-20250915
+ * @version 1.9.1-20260910
  * @since 1.1.0-20250915
  */
 public enum LLOBEventType {
@@ -23,6 +23,10 @@ public enum LLOBEventType {
   /** 消息事件 */
   MESSAGE_PRIVATE("message", "private", LLOBEventPrivateMessage.class),
   MESSAGE_GROUP("message", "group", LLOBEventGroupMessage.class),
+  /** 机器人自己发出的私聊消息 */
+  MESSAGE_SENT_PRIVATE("message_sent", "private", LLOBEventPrivateMessage.class),
+  /** 机器人自己发出的群消息 */
+  MESSAGE_SENT_GROUP("message_sent", "group", LLOBEventGroupMessage.class),
 
   // request
   /** 好友申请事件 */
@@ -93,10 +97,38 @@ public enum LLOBEventType {
     this.eventEntityClass = eventEntityClass;
   }
 
-  /** 根据子类型获取枚举 */
+  /**
+   * 根据子类型获取枚举
+   *
+   * @deprecated 子类型会冲突（如 message/group 与 request/group），请使用 {@link #of(String, String)}
+   */
+  @Deprecated
   public static LLOBEventType spTypeOf(String postSpType) {
+    if (postSpType == null) {
+      return RAW;
+    }
     for (LLOBEventType value : LLOBEventType.values()) {
       if (value.postSpType.equals(postSpType)) {
+        return value;
+      }
+    }
+    return RAW;
+  }
+
+  /**
+   * 按 post_type + 子类型精确匹配
+   *
+   * @param postType   事件类型
+   * @param postSpType 事件子类型
+   *
+   * @return 匹配的事件类型，未找到则为 RAW
+   */
+  public static LLOBEventType of(String postType, String postSpType) {
+    if (postType == null || postSpType == null) {
+      return RAW;
+    }
+    for (LLOBEventType value : LLOBEventType.values()) {
+      if (value.postType.equals(postType) && value.postSpType.equals(postSpType)) {
         return value;
       }
     }
@@ -111,25 +143,38 @@ public enum LLOBEventType {
    * @return 解析后的事件实体类
    */
   public static LLOBEventType analyze(@NotNull JsonNode node) {
-    String postType = node.get("post_type").asString();
+    JsonNode postTypeNode = node.get("post_type");
+    String postType = postTypeNode == null || postTypeNode.isNull()
+      ? "unknown"
+      : postTypeNode.asString();
     String postSpType;
     switch (postType) {
-      case "message", "message_sent" -> postSpType = node.get("message_type").asString();
-      case "request" -> postSpType = node.get("request_type").asString();
+      case "message", "message_sent" -> postSpType = childAsString(node, "message_type");
+      case "request" -> postSpType = childAsString(node, "request_type");
       case "notice" -> {
-        String noticeType = node.get("notice_type").asString();
+        String noticeType = childAsString(node, "notice_type");
         if ("notify".equals(noticeType)) {
-          JsonNode subTypeNode = node.get("sub_type");
-          String subType = subTypeNode == null ? "" : subTypeNode.asString();
-          postSpType = (subType == null || subType.isEmpty()) ? noticeType : subType;
+          String subType = childAsString(node, "sub_type");
+          postSpType = subType.isEmpty() || "unknown".equals(subType)
+            ? noticeType
+            : subType;
         } else {
           postSpType = noticeType;
         }
       }
-      case "meta_event" -> postSpType = node.get("meta_event_type").asString();
+      case "meta_event" -> postSpType = childAsString(node, "meta_event_type");
       default -> postSpType = "unknown";
     }
-    return LLOBEventType.spTypeOf(postSpType);
+    return LLOBEventType.of(postType, postSpType);
+  }
+
+  private static String childAsString(@NotNull JsonNode node, String field) {
+    JsonNode child = node.get(field);
+    if (child == null || child.isNull()) {
+      return "unknown";
+    }
+    String value = child.asString();
+    return value == null || value.isEmpty() ? "unknown" : value;
   }
 
 }
