@@ -14,6 +14,7 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Data
+@Deprecated(since = "请使用 SET_MSG_EMOJI_LIKE 并设置 set=false")
 public class LLOBSendMsgUnsetEmojiLike {
   /** 消息ID */
   private Integer messageId;

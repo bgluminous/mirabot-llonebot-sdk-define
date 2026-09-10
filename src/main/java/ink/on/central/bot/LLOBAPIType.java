@@ -1,20 +1,22 @@
 package ink.on.central.bot;
 
 import ink.on.central.bot.entity.request.file.*;
+import ink.on.central.bot.entity.request.friend.*;
 import ink.on.central.bot.entity.request.group.*;
 import ink.on.central.bot.entity.request.msg.*;
 import ink.on.central.bot.entity.request.other.*;
 import ink.on.central.bot.entity.request.system.*;
 import ink.on.central.bot.entity.request.unclassified.*;
-import ink.on.central.bot.entity.request.friend.*;
 import ink.on.central.bot.entity.response.file.*;
+import ink.on.central.bot.entity.response.friend.*;
 import ink.on.central.bot.entity.response.group.*;
 import ink.on.central.bot.entity.response.msg.*;
 import ink.on.central.bot.entity.response.other.*;
 import ink.on.central.bot.entity.response.system.LLOBResSystemGetCookies;
 import ink.on.central.bot.entity.response.system.LLOBResSystemGetLoginInfo;
+import ink.on.central.bot.entity.response.system.LLOBResSystemGetStatus;
 import ink.on.central.bot.entity.response.system.LLOBResSystemGetVersionInfo;
-import ink.on.central.bot.entity.response.friend.*;
+import ink.on.central.bot.entity.response.system.LLOBResSystemScanQrcode;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
@@ -32,15 +34,14 @@ public enum LLOBAPIType {
   public enum File {
     /** 上传群文件 LLOneBot扩展 */
     UPLOAD_GROUP_FILE("upload_group_file", LLOBSendFileGroupUpload.class, LLOBResGroupUploadFile.class),
-    /** 群文件转永久 */
-    @Deprecated(since = "开发中")
+    /** 群文件转永久 LLOneBot扩展（需要 6.5.0 之后的版本） */
     SET_GROUP_FILE_FOREVER("set_group_file_forever", LLOBSendFileGroupSetForever.class, String.class),
     /** 删除群文件 LLOneBot扩展 */
     DELETE_GROUP_FILE("delete_group_file", LLOBSendFileGroupDelete.class, String.class),
     /** 移动群文件 LLOneBot扩展 */
     MOVE_GROUP_FILE("move_group_file", LLOBSendFileGroupMove.class, String.class),
     /** 创建群文件文件夹 LLOneBot扩展 */
-    CREATE_GROUP_FILE_FOLDER("create_group_file_folder", LLOBSendGroupCreateFileFolder.class, String.class),
+    CREATE_GROUP_FILE_FOLDER("create_group_file_folder", LLOBSendGroupCreateFileFolder.class, LLOBResFileCreateGroupFolder.class),
     /** 删除群文件文件夹 LLOneBot扩展 */
     DELETE_GROUP_FOLDER("delete_group_folder", LLOBSendGroupDeleteFileFolder.class, String.class),
     /** 获取群文件系统信息 LLOneBot扩展 */
@@ -51,20 +52,24 @@ public enum LLOBAPIType {
     GET_GROUP_FILES_BY_FOLDER("get_group_files_by_folder", LLOBSendFileGetGroupByFolder.class, LLOBResGroupGetFilesByFolder.class),
     /** 重命名群文件文件夹名 LLOneBot扩展 */
     RENAME_GROUP_FILE_FOLDER("rename_group_file_folder", LLOBSendFileGroupRenameFolder.class, String.class),
+    /** 重命名群文件名 LLOneBot扩展（此 API 需要 LLBot 7.10.1 及以上版本） */
+    RENAME_GROUP_FILE("rename_group_file", LLOBSendFileGroupRename.class, String.class),
     /** 获取群文件资源链接 LLOneBot扩展 */
     GET_GROUP_FILE_URL("get_group_file_url", LLOBSendFileGroupGetUrl.class, LLOBResGroupGetFileUrl.class),
     /** 获取私聊文件资源链接 LLOneBot扩展 */
     GET_PRIVATE_FILE_URL("get_private_file_url", LLOBSendUserGetPrivateFileUrl.class, LLOBResUserGetPrivateFileUrl.class),
     /** 上传私聊文件 LLOneBot扩展 */
-    UPLOAD_PRIVATE_FILE("upload_private_file", LLOBSendFileUploadPrivate.class, String.class),
-    /** 上传闪传文件 LLOneBot扩展 开发中暂未实现（此 API 需要 LLOneBot 5.3.0 以上版本） */
+    UPLOAD_PRIVATE_FILE("upload_private_file", LLOBSendFileUploadPrivate.class, LLOBResFileUploadPrivate.class),
+    /** 上传闪传文件 LLOneBot扩展（此 API 需要 LLOneBot 5.3.0 以上版本） */
     UPLOAD_FLASH_FILE("upload_flash_file", LLOBSendFileUploadFlash.class, LLOBResOtherUploadFlashFile.class),
-    /** 下载闪传文件 LLOneBot扩展 开发中暂未实现（此 API 需要 LLOneBot 5.3.0 以上版本） */
+    /** 下载闪传文件 LLOneBot扩展（此 API 需要 LLOneBot 5.3.0 以上版本） */
     DOWNLOAD_FLASH_FILE("download_flash_file", LLOBSendFileDownloadFlash.class, String.class),
-    /** 获取闪传文件详情 LLOneBot扩展 开发中暂未实现（此 API 需要 LLOneBot 5.3.0 以上版本） */
+    /** 获取闪传文件详情 LLOneBot扩展（此 API 需要 LLOneBot 5.3.0 以上版本） */
     GET_FLASH_FILE_INFO("get_flash_file_info", LLOBSendFileGetFlashInfo.class, LLOBResOtherGetFlashFileInfo.class),
     /** 下载文件到bot所在 LLOneBot扩展 */
-    DOWNLOAD_FILE("download_file", LLOBSendFileDownload.class, String.class);
+    DOWNLOAD_FILE("download_file", LLOBSendFileDownload.class, String.class),
+    /** 重新分享闪传文件 LLOneBot扩展 (此 API 需要 LLBot 7.11.0 以上版本) */
+    RESHARE_FLASH_FILE("reshare_flash_file", LLOBSendFileReshareFlash.class, LLOBResFileReshareFlash.class);
 
     /** API URL */
     @Getter
@@ -107,7 +112,7 @@ public enum LLOBAPIType {
     SET_FRIEND_ADD_REQUEST("set_friend_add_request", LLOBSendUserSetFriendAddRequest.class, String.class),
     /** 设置好友备注 LLOneBot扩展 */
     SET_FRIEND_REMARK("set_friend_remark", LLOBSendUserSetFriendRemark.class, String.class),
-    /** 获取好友或群友信息 LLOneBot扩展 */
+    /** 获取陌生人信息 LLOneBot扩展 */
     GET_STRANGER_INFO("get_stranger_info", LLOBSendUserGetStrangerInfo.class, LLOBResUserGetStrangerInfo.class),
     /** 设置QQ头像 LLOneBot扩展 */
     SET_QQ_AVATAR("set_qq_avatar", LLOBSendUserSetQQAvatar.class, String.class),
@@ -117,12 +122,22 @@ public enum LLOBAPIType {
     GET_PROFILE_LIKE("get_profile_like", LLOBSendUserGetProfileLike.class, LLOBResUserGetProfileLike.class),
     /** 获取谁赞过我列表 LLOneBot扩展 */
     GET_PROFILE_LIKE_ME("get_profile_like_me", LLOBSendUserGetProfileLikeMe.class, LLOBResUserGetProfileLikeMe.class),
+    /** 获取名片赞数量 LLOneBot扩展（此 API 需要 LLBot 8.0.3 及以上版本） */
+    GET_PROFILE_LIKE_COUNT("get_profile_like_count", LLOBSendUserGetProfileLikeCount.class, LLOBResUserGetProfileLikeCount.class),
     /** 获取官方机器人QQ号范围 LLOneBot扩展 */
     GET_ROBOT_UIN_RANGE("get_robot_uin_range", LLOBSendUserGetRobotUinRange.class, LLOBResUserGetRobotUinRange.class),
     /** 移动好友分组 LLOneBot扩展 */
     SET_FRIEND_CATEGORY("set_friend_category", LLOBSendUserSetFriendCategory.class, String.class),
-    /** 获取QQ头像 LLOneBot扩展 */
-    GET_QQ_AVATAR("get_qq_avatar", LLOBSendUserGetQQAvatar.class, LLOBResUserGetQQAvatar.class);
+    /** 获取QQ或QQ群头像 LLOneBot扩展 */
+    GET_QQ_AVATAR("get_qq_avatar", LLOBSendUserGetQQAvatar.class, LLOBResUserGetQQAvatar.class),
+    /** 获取被过滤好友请求 LLOneBot扩展 (此 API 需要 LLOneBot 6.2.0 及以上版本) */
+    GET_DOUBT_FRIENDS_ADD_REQUEST("get_doubt_friends_add_request", LLOBSendUserGetDoubtFriendsAddRequest.class, LLOBResUserGetDoubtFriendsAddRequest.class),
+    /** 处理被过滤好友请求 LLOneBot扩展 (此 API 需要 LLOneBot 6.2.0 及以上版本) */
+    SET_DOUBT_FRIENDS_ADD_REQUEST("set_doubt_friends_add_request", LLOBSendUserSetDoubtFriendsAddRequest.class, String.class),
+    /** 设置登录号资料 LLOneBot扩展 */
+    SET_QQ_PROFILE("set_qq_profile", LLOBSendUserSetQQProfile.class, String.class),
+    /** 设置输入状态 LLOneBot扩展（此 API 需要 LLBot 7.12.3 及以上版本） */
+    SET_INPUT_STATUS("set_input_status", LLOBSendUserSetInputStatus.class, String.class);
 
     /** API URL */
     @Getter
@@ -154,11 +169,11 @@ public enum LLOBAPIType {
   /** 群相关 */
   public enum Group {
     /** 获取群列表 */
-    GET_GROUP_LIST("get_group_list", LLOBSendGroupGetList.class, String.class),
+    GET_GROUP_LIST("get_group_list", LLOBSendGroupGetList.class, LLOBResGroupGetInfo.class),
     /** 获取群信息 */
     GET_GROUP_INFO("get_group_info", LLOBSendGroupGetInfo.class, LLOBResGroupGetInfo.class),
     /** 获取群成员列表 */
-    GET_GROUP_MEMBER_LIST("get_group_member_list", LLOBSendGroupGetMemberList.class, String.class),
+    GET_GROUP_MEMBER_LIST("get_group_member_list", LLOBSendGroupGetMemberList.class, LLOBResGroupGetMemberInfo.class),
     /** 获取群成员信息 */
     GET_GROUP_MEMBER_INFO("get_group_member_info", LLOBSendGroupGetMemberInfo.class, LLOBResGroupGetMemberInfo.class),
     /** 群员戳一戳（双击头像） LLOneBot扩展 */
@@ -188,7 +203,7 @@ public enum LLOBAPIType {
     /** 获取群荣誉信息 */
     GET_GROUP_HONOR_INFO("get_group_honor_info", LLOBSendGroupGetHonorInfo.class, LLOBResGroupGetHonorInfo.class),
     /** 获取群精华消息 LLOneBot扩展 */
-    GET_ESSENCE_MSG_LIST("get_essence_msg_list", LLOBSendGroupGetEssenceMsgList.class, String.class),
+    GET_ESSENCE_MSG_LIST("get_essence_msg_list", LLOBSendGroupGetEssenceMsgList.class, LLOBResGroupGetEssenceMsgList.class),
     /** 设置群精华消息 LLOneBot扩展 */
     SET_ESSENCE_MSG("set_essence_msg", LLOBSendGroupSetEssenceMsg.class, String.class),
     /** 删除群精华消息 LLOneBot扩展 */
@@ -206,7 +221,25 @@ public enum LLOBAPIType {
     /** 设置群备注 LLOneBot扩展 */
     SET_GROUP_REMARK("set_group_remark", LLOBSendGroupSetRemark.class, String.class),
     /** 获取已过滤的加群通知 LLOneBot扩展 */
-    GET_GROUP_IGNORE_ADD_REQUEST("get_group_ignore_add_request", LLOBSendGroupGetIgnoreAddRequest.class, String.class);
+    GET_GROUP_IGNORE_ADD_REQUEST("get_group_ignore_add_request", LLOBSendGroupGetIgnoreAddRequest.class, String.class),
+    /** 批量踢出群成员 LLOneBot扩展（需要 5.6.0 及以上版本） */
+    BATCH_DELETE_GROUP_MEMBER("batch_delete_group_member", LLOBSendGroupBatchDeleteMember.class, String.class),
+    /** 上传群相册 LLOneBot扩展 */
+    UPLOAD_GROUP_ALBUM("upload_group_album", LLOBSendGroupUploadAlbum.class, LLOBResGroupUploadAlbum.class),
+    /** 获取群相册列表 LLOneBot扩展 */
+    GET_GROUP_ALBUM_LIST("get_group_album_list", LLOBSendGroupGetAlbumList.class, LLOBResGroupAlbum.class),
+    /** 创建群相册 LLOneBot扩展 */
+    CREATE_GROUP_ALBUM("create_group_album", LLOBSendGroupCreateAlbum.class, LLOBResGroupAlbum.class),
+    /** 删除群相册 LLOneBot扩展 */
+    DELETE_GROUP_ALBUM("delete_group_album", LLOBSendGroupDeleteAlbum.class, String.class),
+    /** 获取群相册媒体列表 LLOneBot扩展（此 API 需要 LLBot 7.12.3 及以上版本） */
+    GET_GROUP_ALBUM_MEDIA_LIST("get_group_album_media_list", LLOBSendGroupGetAlbumMediaList.class, LLOBResGroupGetAlbumMediaList.class),
+    /** 删除群公告 LLOneBot扩展 */
+    DELETE_GROUP_NOTICE("_delete_group_notice", LLOBSendGroupDeleteNotice.class, String.class),
+    /** 设置群头像 LLOneBot扩展 */
+    SET_GROUP_PORTRAIT("set_group_portrait", LLOBSendGroupSetPortrait.class, String.class),
+    /** 获取群组今日打卡列表 LLOneBot扩展（此 API 需要 LLBot 8.0.0 及以上版本） */
+    GET_GROUP_SIGNED_LIST("get_group_signed_list", LLOBSendGroupGetSignedList.class, LLOBResGroupGetSignedList.class);
 
     /** API URL */
     @Getter
@@ -245,9 +278,9 @@ public enum LLOBAPIType {
     /** 发送群消息 */
     SEND_GROUP_MSG("send_group_msg", LLOBSendMsgGroup.class, LLOBResMsgSendGroupMsg.class),
     /** 转发单条好友消息 LLOneBot扩展 */
-    FORWARD_FRIEND_SINGLE_MSG("forward_friend_single_msg", LLOBSendMsgForwardFriendSingle.class, String.class),
+    FORWARD_FRIEND_SINGLE_MSG("forward_friend_single_msg", LLOBSendMsgForwardFriendSingle.class, LLOBResMsgSendPrivateMsg.class),
     /** 转发单条群消息 LLOneBot扩展 */
-    FORWARD_GROUP_SINGLE_MSG("forward_group_single_msg", LLOBSendMsgForwardGroupSingle.class, String.class),
+    FORWARD_GROUP_SINGLE_MSG("forward_group_single_msg", LLOBSendMsgForwardGroupSingle.class, LLOBResMsgSendGroupMsg.class),
     /** 获取消息 */
     GET_MSG("get_msg", LLOBSendMsgGet.class, LLOBResMsgGetMsg.class),
     /** 撤回消息 */
@@ -260,8 +293,11 @@ public enum LLOBAPIType {
     GET_RECORD("get_record", LLOBSendMsgGetRecord.class, LLOBResMsgGetRecord.class),
     /** 表情回应消息 LLOneBot扩展 */
     SET_MSG_EMOJI_LIKE("set_msg_emoji_like", LLOBSendMsgSetEmojiLike.class, String.class),
-    /** 取消表情回应消息 LLOneBot扩展 */
+    /** 取消表情回应消息 LLOneBot扩展（文档已并入 set_msg_emoji_like.set=false） */
+    @Deprecated(since = "请使用 SET_MSG_EMOJI_LIKE 并设置 set=false")
     UNSET_MSG_EMOJI_LIKE("unset_msg_emoji_like", LLOBSendMsgUnsetEmojiLike.class, String.class),
+    /** 获取表情回应详情 LLOneBot扩展 */
+    FETCH_EMOJI_LIKE("fetch_emoji_like", LLOBSendMsgFetchEmojiLike.class, LLOBResMsgFetchEmojiLike.class),
     /** 获取好友历史消息记录 */
     GET_FRIEND_MSG_HISTORY("get_friend_msg_history", LLOBSendMsgGetFriendHistory.class, LLOBResMsgGetFriendMsgHistory.class),
     /** 获取群历史消息记录 */
@@ -270,10 +306,14 @@ public enum LLOBAPIType {
     GET_FORWARD_MSG("get_forward_msg", LLOBSendMsgGetForwardMsg.class, LLOBResMsgGetForwardMsg.class),
     /** 标记消息为已读 LLOneBot扩展 */
     MARK_MSG_AS_READ("mark_msg_as_read", LLOBSendMsgMarkAsRead.class, String.class),
-    /** 语音消息转文字 LLOneBot扩展 @开发中 */
+    /** 语音消息转文字 LLOneBot扩展（llonebot 5.1 版本才支持此 api） */
     VOICE_MSG_TO_TEXT("voice_msg_to_text", LLOBSendMsgVoiceToText.class, LLOBResMsgVoiceMsgToText.class),
     /** 发送群 AI 语音消息 LLOneBot扩展 */
     SEND_GROUP_AI_RECORD("send_group_ai_record", LLOBSendMsgGroupAiRecord.class, LLOBResMsgSendGroupAiRecord.class),
+    /** 获取群 Ai 语音可用声色列表 LLOneBot扩展（此 API 需要 LLOneBot 5.6.1 及以上版本） */
+    GET_AI_CHARACTERS("get_ai_characters", LLOBSendOtherGetAiCharacters.class, LLOBResOtherGetAiCharacters.class),
+    /** 发送戳一戳（双击头像） LLOneBot扩展（此 API 需要 LLBot 7.11.3 及以上版本） */
+    SEND_POKE("send_poke", LLOBSendMsgPoke.class, String.class),
     ;
 
     /** API URL */
@@ -314,9 +354,9 @@ public enum LLOBAPIType {
     /** 获取收藏表情 LLOneBot扩展 */
     FETCH_CUSTOM_FACE("fetch_custom_face", LLOBSendOtherFetchCustomFace.class, String.class),
     /** 获取群 Ai 语音可用声色列表 LLOneBot扩展 */
+    @Deprecated(since = "请使用 LLOBAPIType.Msg.GET_AI_CHARACTERS")
     GET_AI_CHARACTERS("get_ai_characters", LLOBSendOtherGetAiCharacters.class, LLOBResOtherGetAiCharacters.class),
     /** 发送Protobuf数据包 LLOneBot扩展 */
-    @Deprecated(since = "开发中")
     SEND_PROTOBUF("send_pb", LLOBSendOtherSendProtobuf.class, LLOBResOtherSendProtobuf.class);
 
     /** API URL */
@@ -353,7 +393,7 @@ public enum LLOBAPIType {
     /** 获取版本信息 */
     GET_VERSION_INFO("get_version_info", LLOBSendSystemGetVersionInfo.class, LLOBResSystemGetVersionInfo.class),
     /** 获取运行状态 */
-    GET_STATUS("get_status", LLOBSendSystemGetStatus.class, String.class),
+    GET_STATUS("get_status", LLOBSendSystemGetStatus.class, LLOBResSystemGetStatus.class),
     /** 清理缓存 （该 API 在 LLOneBot 5.0+ 之后失效） */
     @Deprecated(since = "LLOneBot 5.0+")
     CLEAN_CACHE("clean_cache", LLOBSendSystemCleanCache.class, String.class),
@@ -363,7 +403,9 @@ public enum LLOBAPIType {
     SET_ONLINE_STATUS("set_online_status", LLOBSendSystemSetOnlineStatus.class, String.class),
     /** 重启 OneBot（该 API 在 LLOneBot 5.0+ 之后失效） */
     @Deprecated(since = "LLOneBot 5.0+")
-    SET_RESTART("set_restart", LLOBSendSystemSetRestart.class, String.class);
+    SET_RESTART("set_restart", LLOBSendSystemSetRestart.class, String.class),
+    /** 扫描二维码 （此 API 需要需要7.2.0及以上版本） */
+    SCAN_QRCODE("scan_qrcode", LLOBSendSystemScanQrcode.class, LLOBResSystemScanQrcode.class);
 
     /** API URL */
     @Getter

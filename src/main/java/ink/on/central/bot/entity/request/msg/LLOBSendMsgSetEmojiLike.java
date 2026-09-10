@@ -19,4 +19,6 @@ public class LLOBSendMsgSetEmojiLike {
   private Integer messageId;
   /** 表情ID */
   private String emojiId;
+  /** 是否回应，false 表示取消回应 */
+  private Boolean set;
 }

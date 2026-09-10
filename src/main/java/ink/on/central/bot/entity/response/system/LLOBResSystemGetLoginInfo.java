@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
 @Data
 public class LLOBResSystemGetLoginInfo {
   /** QQ号 */
-  private Long userid;
+  private Long userId;
   /** 昵称 */
   private String nickname;
 }

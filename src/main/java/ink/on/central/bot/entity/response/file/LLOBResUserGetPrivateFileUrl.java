@@ -15,6 +15,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Data
 public class LLOBResUserGetPrivateFileUrl {
-  /** 头像地址 */
+  /** 文件地址 */
   private String url;
 }

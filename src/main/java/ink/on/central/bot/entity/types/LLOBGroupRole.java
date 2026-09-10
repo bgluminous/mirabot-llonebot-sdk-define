@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum LLOBGroupRole {
   OWNER("owner"),
-  ADMINISTRATOR("administrator"),
+  ADMINISTRATOR("admin"),
   MEMBER("member");
 
   @Getter
@@ -16,8 +16,12 @@ public enum LLOBGroupRole {
 
   public static LLOBGroupRole strOf(String str) {
     if (str != null && !str.isEmpty()) {
+      String normalized = str.toLowerCase();
+      if ("administrator".equals(normalized)) {
+        return ADMINISTRATOR;
+      }
       for (LLOBGroupRole value : values()) {
-        if (value.str.equals(str.toLowerCase())) {
+        if (value.str.equals(normalized)) {
           return value;
         }
       }

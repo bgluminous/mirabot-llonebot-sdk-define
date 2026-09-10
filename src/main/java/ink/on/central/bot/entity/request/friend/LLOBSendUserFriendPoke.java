@@ -17,4 +17,6 @@ import lombok.experimental.Accessors;
 public class LLOBSendUserFriendPoke {
   /** QQ号 */
   private Long userId;
+  /** 目标 QQ 号 */
+  private Long targetId;
 }

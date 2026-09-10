@@ -27,6 +27,22 @@ public class LLOBResGroupGetInfo {
   private Long memberCount;
   /** 最大群成员数量 */
   private Long maxMemberCount;
+  /** 群备注 */
+  private String remarkName;
+  /** 群头像 */
+  private String avatarUrl;
+  /** 群主 QQ 号 */
+  private Long ownerId;
+  /** 群是否置顶 */
+  private Boolean isTop;
+  /** 全员禁言结束时间 */
+  private Long shutUpAllTimestamp;
+  /** 自身禁言结束时间 */
+  private Long shutUpMeTimestamp;
+  /** 群是否被冻结（LLBot 7.8+） */
+  private Boolean isFreeze;
+  /** 活跃成员数（LLBot 7.8+） */
+  private Integer activeMemberCount;
   /** 更详细的群信息,非OneBot11字段 */
   private GroupAll groupAll;
 

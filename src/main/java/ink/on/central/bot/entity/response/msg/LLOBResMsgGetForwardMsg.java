@@ -40,7 +40,7 @@ public class LLOBResMsgGetForwardMsg {
   @Data
   public static class LLOBResMsgGetForwardMsgSender {
     /** QQ号 */
-    private Long userid;
+    private Long userId;
     /** 昵称 */
     private String nickname;
   }

@@ -14,7 +14,6 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Data
-@Deprecated(since = "开发中")
 public class LLOBResOtherSendProtobuf {
   /** 命令 */
   private String cmd;

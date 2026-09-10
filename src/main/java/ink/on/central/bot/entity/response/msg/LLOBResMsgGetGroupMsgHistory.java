@@ -61,7 +61,7 @@ public class LLOBResMsgGetGroupMsgHistory  {
   @Data
   public static class LLOBResMsgGetGroupMsgHistorySender {
     /** QQ号 */
-    private Long userid;
+    private Long userId;
     /** 昵称 */
     private String nickname;
     /** 群名片 */

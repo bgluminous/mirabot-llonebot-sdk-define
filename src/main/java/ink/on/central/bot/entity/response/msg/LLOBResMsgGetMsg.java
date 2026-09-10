@@ -49,6 +49,8 @@ public class LLOBResMsgGetMsg {
   private Sender sender;
   /** 消息列表 */
   private List<Map<String, Object>> message;
+  /** 消息状态 normal / deleted */
+  private String status;
 
   /** 消息发送者 */
   @Accessors(chain = true)

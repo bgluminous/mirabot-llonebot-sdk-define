@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * 获取好友或群友信息 LLOneBot扩展 实体类
+ * 获取陌生人信息 LLOneBot扩展 实体类
  *
  * @author BGLuminous
  * @version 1.0.0-20240408

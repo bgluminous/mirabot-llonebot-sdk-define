@@ -21,4 +21,6 @@ public class LLOBSendMsgGetGroupHistory {
   private Long messageSeq;
   /** 数量 默认20 */
   private Integer count;
+  /** 是否逆序 */
+  private Boolean reverseOrder;
 }

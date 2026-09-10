@@ -17,4 +17,6 @@ import lombok.experimental.Accessors;
 public class LLOBSendGroupGetHonorInfo {
   /** 群号 */
   private Long groupId;
+  /** 荣誉类型 all / talkative / performer / legend / strong_newbie / emotion，默认 all */
+  private String type;
 }

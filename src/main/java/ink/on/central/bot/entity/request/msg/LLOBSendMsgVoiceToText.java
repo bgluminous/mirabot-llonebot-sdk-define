@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * 上传私聊文件 LLOneBot扩展 实体类
+ * 语音消息转文字 LLOneBot扩展（llonebot 5.1 版本才支持此 api）
  *
  * @author BGLuminous
- * @version 1.0.0-20250721
+ * @version 1.9.0-20260910
  * @see LLOBAPIType.Msg#VOICE_MSG_TO_TEXT
  * @since 1.0.0-20250721
  */

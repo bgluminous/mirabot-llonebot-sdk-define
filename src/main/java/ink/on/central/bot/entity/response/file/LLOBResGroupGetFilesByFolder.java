@@ -66,5 +66,11 @@ public class LLOBResGroupGetFilesByFolder {
     private Long groupId;
     /** 子文件数量 */
     private Integer totalFileCount;
+    /** 最后更新时间 */
+    private Long modifyTime;
+    /** 最后更新者 */
+    private Long modifier;
+    /** 最后更新者名字 */
+    private String modifierName;
   }
 }

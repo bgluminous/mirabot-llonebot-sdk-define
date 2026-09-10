@@ -18,12 +18,13 @@ public class LLOBSendGroupSetMsgMask {
   /** 群号 */
   private Long groupId;
   /** 1接收并提醒 2收进群助手 3屏蔽 4接收不提醒 */
-  private Integer mark;
+  private Integer mask;
 
-  public LLOBSendGroupSetMsgMask setMark(Integer mark) {
-    if (mark < 1 || mark > 4) {
-      throw new IllegalArgumentException("mark must be between 1 and 4!");
+  public LLOBSendGroupSetMsgMask setMask(Integer mask) {
+    if (mask < 1 || mask > 4) {
+      throw new IllegalArgumentException("mask must be between 1 and 4!");
     }
+    this.mask = mask;
     return this;
   }
 }

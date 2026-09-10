@@ -19,4 +19,6 @@ public class LLOBSendGroupGetMemberInfo {
   private Long groupId;
   /** QQ号 */
   private Long userId;
+  /** 是否不使用缓存 */
+  private Boolean noCache;
 }

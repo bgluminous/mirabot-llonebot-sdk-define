@@ -5,10 +5,9 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * 获取QQ头像 LLOneBot扩展 实体类
+ * 获取QQ或QQ群头像 LLOneBot扩展 实体类
  *
  * @author BGLuminous
- * @version 1.0.0-20250717
  * @see LLOBAPIType.Friend#GET_QQ_AVATAR
  * @since 1.0.0-20250717
  */
@@ -17,4 +16,6 @@ import lombok.experimental.Accessors;
 public class LLOBSendUserGetQQAvatar {
   /** QQ号 */
   private Long userId;
+  /** 群号 */
+  private Long groupId;
 }

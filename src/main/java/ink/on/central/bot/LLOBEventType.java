@@ -1,6 +1,5 @@
 package ink.on.central.bot;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import ink.on.central.bot.entity.event.meta.LLOBEventMetaHeartbeat;
 import ink.on.central.bot.entity.event.meta.LLOBEventMetaLifeCycle;
 import ink.on.central.bot.entity.event.msg.LLOBEventGroupMessage;
@@ -10,6 +9,7 @@ import ink.on.central.bot.entity.event.request.LLOBEventRequestFriendAdd;
 import ink.on.central.bot.entity.event.request.LLOBEventRequestGroupAdd;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
+import tools.jackson.databind.JsonNode;
 
 /**
  * 事件实体类映射枚举
@@ -28,10 +28,12 @@ public enum LLOBEventType {
   /** 好友申请事件 */
   REQUEST_FRIEND("request", "friend", LLOBEventRequestFriendAdd.class),
   /** 申请加群事件 */
-  REQUEST_GROUP("request", "group_request", LLOBEventRequestGroupAdd.class),
+  REQUEST_GROUP("request", "group", LLOBEventRequestGroupAdd.class),
 
   // notice
-  /** 撤回戳一戳事件 */
+  /** 戳一戳事件 notice_type=notify, sub_type=poke */
+  NOTICE_POKE("notice", "poke", LLOBEventNoticePokeRecall.class),
+  /** 撤回戳一戳事件 notice_type=notify, sub_type=poke_recall */
   NOTICE_POKE_RECALL("notice", "poke_recall", LLOBEventNoticePokeRecall.class),
   /** 好友消息撤回事件 */
   NOTICE_FRIEND_RECALL("notice", "friend_recall", LLOBEventNoticeFriendRecall.class),
@@ -47,8 +49,8 @@ public enum LLOBEventType {
   NOTICE_GROUP_INCREASE("notice", "group_increase", LLOBEventNoticeGroupIncrease.class),
   /** 群成员减少事件 */
   NOTICE_GROUP_DECREASE("notice", "group_decrease", LLOBEventNoticeGroupDecrease.class),
-  /** 群头衔事件 */
-  NOTICE_GROUP_TITLE("notice", "notify", LLOBEventNoticeGroupTitle.class),
+  /** 群头衔事件 notice_type=notify, sub_type=title */
+  NOTICE_GROUP_TITLE("notice", "title", LLOBEventNoticeGroupTitle.class),
   /** 群名片事件 */
   NOTICE_GROUP_CARD("notice", "group_card", LLOBEventNoticeGroupCard.class),
   /** 群消息贴表情事件 */
@@ -109,13 +111,22 @@ public enum LLOBEventType {
    * @return 解析后的事件实体类
    */
   public static LLOBEventType analyze(@NotNull JsonNode node) {
-    String postType = node.get("post_type").asText();
+    String postType = node.get("post_type").asString();
     String postSpType;
     switch (postType) {
-      case "message" -> postSpType = node.get("message_type").asText();
-      case "request" -> postSpType = node.get("request_type").asText();
-      case "notice" -> postSpType = node.get("notice_type").asText();
-      case "meta_event" -> postSpType = node.get("meta_event_type").asText();
+      case "message", "message_sent" -> postSpType = node.get("message_type").asString();
+      case "request" -> postSpType = node.get("request_type").asString();
+      case "notice" -> {
+        String noticeType = node.get("notice_type").asString();
+        if ("notify".equals(noticeType)) {
+          JsonNode subTypeNode = node.get("sub_type");
+          String subType = subTypeNode == null ? "" : subTypeNode.asString();
+          postSpType = (subType == null || subType.isEmpty()) ? noticeType : subType;
+        } else {
+          postSpType = noticeType;
+        }
+      }
+      case "meta_event" -> postSpType = node.get("meta_event_type").asString();
       default -> postSpType = "unknown";
     }
     return LLOBEventType.spTypeOf(postSpType);

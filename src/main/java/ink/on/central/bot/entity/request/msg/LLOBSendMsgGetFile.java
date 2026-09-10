@@ -17,4 +17,6 @@ import lombok.experimental.Accessors;
 public class LLOBSendMsgGetFile {
   /** 文件名 */
   private String file;
+  /** 是否下载文件到 QQ 目录 */
+  private Boolean download;
 }

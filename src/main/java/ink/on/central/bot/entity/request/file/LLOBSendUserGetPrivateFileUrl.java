@@ -15,8 +15,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Data
 public class LLOBSendUserGetPrivateFileUrl {
-  /** QQ号 */
-  private Long userId;
   /** 文件 ID */
   private String fileId;
 }

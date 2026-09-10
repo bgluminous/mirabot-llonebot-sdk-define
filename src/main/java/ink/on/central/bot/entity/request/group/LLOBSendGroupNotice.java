@@ -27,4 +27,14 @@ public class LLOBSendGroupNotice {
    * <p>base64://xxx
    */
   private String image;
+  /** 是否置顶 */
+  private Boolean pinned;
+  /** 是否需要确认 */
+  private Boolean confirmRequired;
+  /** 是否引导修改群名片 */
+  private Boolean isShowEditCard;
+  /** 是否弹出提示 */
+  private Boolean tipWindow;
+  /** 是否发送给新成员 */
+  private Boolean sendNewMember;
 }

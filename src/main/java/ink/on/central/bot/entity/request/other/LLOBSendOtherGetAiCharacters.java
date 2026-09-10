@@ -9,13 +9,13 @@ import lombok.experimental.Accessors;
  *
  * @author BGLuminous
  * @version 1.0.0-20250912
- * @see LLOBAPIType.Other#GET_AI_CHARACTERS
+ * @see LLOBAPIType.Msg#GET_AI_CHARACTERS
  * @since 1.0.0-20250912
  */
 @Accessors(chain = true)
 @Data
 public class LLOBSendOtherGetAiCharacters {
-  /** 文件下载链接 */
+  /** 群号 */
   private Long groupId;
   /** 语音类型  */
   private Integer chatType;

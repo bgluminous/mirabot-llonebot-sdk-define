@@ -34,4 +34,5 @@ public class LLOBResOtherGetFlashFileInfo {
     /** bytes大小 */
     private Long size;
   }
+
 }

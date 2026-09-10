@@ -34,6 +34,8 @@ public class LLOBResGroupGetMemberInfo {
   private Long lastSentTime;
   /** 等级 */
   private String level;
+  /** QQ 等级 */
+  private Integer qqLevel;
   /** 昵称 */
   private String nickname;
   /** 角色 */
@@ -48,6 +50,8 @@ public class LLOBResGroupGetMemberInfo {
   private Long titleExpireTime;
   /** 是否不良记录成员 */
   private Boolean unfriendly;
+  /** 是否为机器人 */
+  private Boolean isRobot;
   /** 用户id */
   private Long userId;
 

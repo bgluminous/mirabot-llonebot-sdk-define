@@ -16,5 +16,5 @@ import lombok.experimental.Accessors;
 @Data
 public class LLOBSendMsgGet {
   /** 消息ID */
-  private String messageId;
+  private Long messageId;
 }

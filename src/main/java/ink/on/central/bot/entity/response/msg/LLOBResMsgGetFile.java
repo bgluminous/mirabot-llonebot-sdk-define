@@ -23,4 +23,6 @@ public class LLOBResMsgGetFile {
   private String fileSize;
   /** 文件名 */
   private String fileName;
+  /** 文件 Base64，需在 LLOneBot 配置中开启文件转 base64 */
+  private String base64;
 }

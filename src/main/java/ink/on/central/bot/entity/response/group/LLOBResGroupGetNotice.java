@@ -15,12 +15,16 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Data
 public class LLOBResGroupGetNotice {
-  /** 公告id */
+  /** 公告 ID */
+  private String noticeId;
+  /** 发送者 QQ */
   private Long senderId;
   /** 公告内容 */
   private Message message;
   /** 发布时间 */
   private Long publishTime;
+  /** 公告设置 */
+  private Settings settings;
 
   @Accessors(chain = true)
   @Data
@@ -41,5 +45,16 @@ public class LLOBResGroupGetNotice {
     private String width;
     /** 图片高度 */
     private String height;
+  }
+
+  /** 公告设置 */
+  @Accessors(chain = true)
+  @Data
+  public static class Settings {
+    private Boolean isShowEditCard;
+    private Boolean tipWindow;
+    private Boolean confirmRequired;
+    private Boolean pinned;
+    private Boolean sendNewMember;
   }
 }

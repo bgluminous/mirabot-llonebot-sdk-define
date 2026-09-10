@@ -38,7 +38,7 @@ public class LLOBResGroupGetHonorInfo {
     private Integer dayCount;
     private String description;
     private String nickname;
-    private Long userid;
+    private Long userId;
   }
 
   /** 群聊之火 */
@@ -48,7 +48,7 @@ public class LLOBResGroupGetHonorInfo {
     private String avatar;
     private String description;
     private String nickname;
-    private Long userid;
+    private Long userId;
   }
 
 }

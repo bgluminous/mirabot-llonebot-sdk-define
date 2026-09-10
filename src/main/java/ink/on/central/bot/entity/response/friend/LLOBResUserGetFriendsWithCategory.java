@@ -22,12 +22,18 @@ public class LLOBResUserGetFriendsWithCategory {
   /** 分组ID */
   @JsonProperty("categoryId")
   private Integer categoryId;
+  /** 分组排序 */
+  @JsonProperty("categorySortId")
+  private Integer categorySortId;
   /** 分组名称 */
   @JsonProperty("categoryName")
   private String categoryName;
   /** 分组内好友数量 */
   @JsonProperty("categoryMbCount")
   private Integer categoryMbCount;
+  /** 在线数量 */
+  @JsonProperty("onlineCount")
+  private Integer onlineCount;
   /** 好友列表 */
   @JsonProperty("buddyList")
   private List<LLOBResUserGetFriendsWithCategoryBuddy> buddyList;
@@ -38,13 +44,27 @@ public class LLOBResUserGetFriendsWithCategory {
     /** 好友ID */
     private String uid;
     /** QQ号 */
+    private Long userId;
+    /** QID */
     private String qid;
-    /** 唯一ID */
+    /** 唯一ID / uin */
     private String uin;
-    /** 昵称 */
+    /** 昵称（文档字段） */
+    private String nickname;
+    /** 昵称（旧 NT 字段） */
     private String nick;
     /** 备注 */
     private String remark;
+    /** 年龄 */
+    private Integer age;
+    /** 等级 */
+    private Integer level;
+    /** 邮箱 */
+    @JsonProperty("eMail")
+    private String eMail;
+    /**  */
+    @JsonProperty("richTime")
+    private Integer richTime;
     /** 长昵称 */
     @JsonProperty("longNick")
     private String longNick;
@@ -57,8 +77,8 @@ public class LLOBResUserGetFriendsWithCategory {
     private Integer birthdayMonth;
     /** 生日日 */
     private Integer birthdayDay;
-    /** 性别 */
-    private Integer sex;
+    /** 性别，male / female / unknown */
+    private String sex;
     /**  */
     @JsonProperty("topTime")
     private String topTime;
@@ -135,7 +155,7 @@ public class LLOBResUserGetFriendsWithCategory {
     private String vipNameColorId;
 
     public LLOBUserSex getSex() {
-      return LLOBUserSex.codeOf(this.sex);
+      return LLOBUserSex.strOf(this.sex);
     }
   }
 

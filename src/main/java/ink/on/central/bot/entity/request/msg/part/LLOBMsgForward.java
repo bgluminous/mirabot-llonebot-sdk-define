@@ -21,13 +21,13 @@ public class LLOBMsgForward extends LLOBMsgPart {
    *
    * @param id ID
    */
-  public LLOBMsgForward(String id) {
+  public LLOBMsgForward(Long id) {
     super("forward");
     this.data = new LLOBMsgForwardData().setId(id);
   }
 
   @Override
-  public LLOBMsgBase getData() {
+  public LLOBMsgForwardData getData() {
     return this.data;
   }
 
@@ -36,6 +36,6 @@ public class LLOBMsgForward extends LLOBMsgPart {
   @EqualsAndHashCode(callSuper = true)
   public static class LLOBMsgForwardData extends LLOBMsgBase {
     /** ID */
-    private String id;
+    private Long id;
   }
 }

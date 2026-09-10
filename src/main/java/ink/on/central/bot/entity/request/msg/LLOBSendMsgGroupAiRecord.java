@@ -28,6 +28,7 @@ public class LLOBSendMsgGroupAiRecord {
     if (chatType != 1 && chatType != 2) {
       throw new IllegalArgumentException("chatType must be 1 or 2");
     }
+    this.chatType = chatType;
     return this;
   }
 }

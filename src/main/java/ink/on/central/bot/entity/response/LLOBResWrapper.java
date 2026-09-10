@@ -1,8 +1,8 @@
 package ink.on.central.bot.entity.response;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import tools.jackson.databind.JsonNode;
 
 /**
  * API请求返回值包装实体类
